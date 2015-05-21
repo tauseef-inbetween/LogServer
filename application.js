@@ -23,7 +23,7 @@ window.addEventListener("load", function(event) {
     logger.log('Window', 'Testing', 'ninth');
     logger.error('Window', 'Testing', 'tenth');
     logger.warn('Window', 'Testing', 'eleventh');
-
+    logger.warn('Window', 'Testing', 100);
     var diffLogger = LogFactory.getLogger('test.js', 'devMode');
 
     diffLogger.log('diffLogger', 'testing', 'dummy1');
