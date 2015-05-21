@@ -17,8 +17,8 @@ window.addEventListener("load", function(event) {
     //logger.log('Window', 'Testing', 'third');
     //logger.debug('Window', 'Testing', 'fourth');
     //logger.error('Window', 'Testing', 'fifth');
-    //logger.warn('Window', 'Testing', 'sixth');
-    //logger.error('Window', 'Testing', 'seventh');
+    logger.warn('Window', 'Testing', true);
+    logger.error('Window', 'Testing', 123);
     logger.log('Window', 'Testing', {name: 'yahoo'});
     logger.log('Window', 'Testing', 'ninth');
     logger.error('Window', 'Testing', 'tenth');
