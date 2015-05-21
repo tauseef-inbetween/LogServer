@@ -1,0 +1,15 @@
+{
+  "name": "mymodule",
+  "version": "0.0.1",
+  "author": "Tauseef Ahmad",
+  "description": "npm websocket with elasticsearch",
+  "main": "./logServerInitializer",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "elasticsearch": "*",
+    "websocket": "*",
+    "q": "*",
+    "bluebird": "*"
+  }
+}
