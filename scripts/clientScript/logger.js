@@ -17,12 +17,12 @@ var Logger = function (className, logMode, worker) {
     var getLogRecord = function (callerName, description, data, logType) {
         return {
             
-            timeStamp: getTimeStamp(),
-            description: description,
-            data: data,
-            useCase: callerName,
-            logClass: logClass,
-            logType: logType
+            timeStamp: getTimeStamp(),  //Time of logging
+            description: description,   //Description of log
+            data: data,                 //Actual data for log
+            useCase: callerName,        //Close To Function Name from where logging is done
+            logClass: logClass,         //Class OR File name from where logging is done
+            logType: logType            //Log type [log, error, debug, warn, info]
         }
     };
 
