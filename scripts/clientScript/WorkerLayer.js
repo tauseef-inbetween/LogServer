@@ -2,6 +2,7 @@ var socket;
 var bufferedLogs = [];
 openConnection("ws://192.168.135.27:8080");
 
+//Messages posted by logger will be received here
 onmessage = function (event) {
     if(socket.readyState) {
         socket.send(JSON.stringify(event.data));
