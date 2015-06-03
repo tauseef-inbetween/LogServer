@@ -24,7 +24,7 @@ var startWebSocketServer = function() {
     });
 
     wsServer.on('request', function(request) {
-        var wsClientConnection = request.accept('echo-protocol', request.origin);
+        var wsClientConnection = request.accept('', request.origin);
         wsMessageHandler.registerClient(wsClientConnection);
     });
 };
