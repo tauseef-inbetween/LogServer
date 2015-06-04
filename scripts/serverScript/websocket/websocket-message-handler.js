@@ -6,13 +6,19 @@ var registerClientForMessages = function(wsClientConnection) {
 
         switch (message.type) {
             case 'utf8':
-                message = JSON.parse(message.utf8Data);
-                saveLog(message);
-                //connection.sendUTF(JSON.stringify(message));
+                try {
+                    message = JSON.parse(message.utf8Data);
+                    saveLog(message);
+                }  catch(e) {
+                    wsClientConnection.sendUTF("Unsupported Data format : " + JSON.stringify(message.utf8Data));
+                }
                 break;
             case 'binary':
-                saveLog(message.binaryData);
-                //connection.sendBytes(message.binaryData);
+                try {
+                    saveLog(message.binaryData);
+                }  catch(e) {
+                    wsClientConnection.sendUTF("Unsupported Data format : " + message.binaryData);
+                }
                 break;
             default:
                 console.log("!!! Unknown Message type found - " + message.type);
