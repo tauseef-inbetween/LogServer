@@ -1,6 +1,6 @@
 var socket;
 var bufferedLogs = [];
-openConnection("ws://192.168.135.27:8080");
+openConnection("ws://localhost:8080");
 
 //Messages posted by logger will be received here
 onmessage = function (event) {
@@ -13,7 +13,8 @@ onmessage = function (event) {
 
 
 function openConnection(url) {
-    socket = new WebSocket(url, "echo-protocol");
+    //socket = new WebSocket(url, "echo-protocol");
+    socket = new WebSocket(url);
 
     socket.addEventListener("open", function (event) {
         while(bufferedLogs.length > 0) {
