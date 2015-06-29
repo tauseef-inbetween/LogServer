@@ -1,3 +1,3 @@
-var logServer = require('./scripts/serverScript/log-server');
+var logServer = require('./scripts/log-server');
 
 logServer.startLogServer();
