@@ -15,12 +15,14 @@ var getElasticsearchConnector = function(elasticsearchClient) {
                     type: appConfig.INDEX_TYPE,
                     body: {
                         logClass: log.logClass,
-                        timeStamp: log.timeStamp,
+                        captureTimeStamp: log.captureTimeStamp,
                         description: log.description,
                         useCase: log.useCase,
                         data: typeof log.data == 'string' ? log.data : JSON.stringify(log.data),
                         type: log.logType,
-                        sessionId: log.sessionId
+                        sessionId: log.sessionId,
+                        mode: log.mode,
+                        persistTimeStamp: getPersistTimeStamp()
                     }
                 }, function(error, response) {
                     //console.log(response);
@@ -36,6 +38,17 @@ var getElasticsearchConnector = function(elasticsearchClient) {
     };
 
     return elasticsearchConnectorAPI
+};
+
+var getPersistTimeStamp = function () {
+    var currentDate = new Date();
+    return currentDate.getFullYear() + "-"
+        + (currentDate.getMonth() + 1) + "-"
+        + currentDate.getDate() + "T"
+        + currentDate.getHours() + ":"
+        + currentDate.getMinutes() + ":"
+        + currentDate.getSeconds() + "."
+        + currentDate.getMilliseconds();
 };
 
 exports.start = function() {
