@@ -19,7 +19,8 @@ var getElasticsearchConnector = function(elasticsearchClient) {
                         description: log.description,
                         useCase: log.useCase,
                         data: typeof log.data == 'string' ? log.data : JSON.stringify(log.data),
-                        type: log.logType
+                        type: log.logType,
+                        sessionId: log.sessionId
                     }
                 }, function(error, response) {
                     //console.log(response);
