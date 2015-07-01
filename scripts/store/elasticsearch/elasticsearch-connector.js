@@ -21,6 +21,7 @@ var getElasticsearchConnector = function(elasticsearchClient) {
                         data: typeof log.data == 'string' ? log.data : JSON.stringify(log.data),
                         type: log.logType,
                         sessionId: log.sessionId,
+                        requestId: log.requestId,
                         mode: log.mode,
                         persistTimeStamp: getPersistTimeStamp()
                     }
