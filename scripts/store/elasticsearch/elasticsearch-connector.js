@@ -17,13 +17,14 @@ var getElasticsearchConnector = function(elasticsearchClient) {
                         className: log.className,
                         captureTimeStamp: log.captureTimeStamp,
                         description: log.description,
-                        useCase: log.useCase,
+                        userScenario: log.userScenario,
                         appData: typeof log.appData == 'string' ? log.appData : JSON.stringify(log.appData),
                         logType: log.logType,
                         sessionId: log.sessionId,
                         requestId: log.requestId,
                         mode: log.mode,
-                        persistTimeStamp: getPersistTimeStamp()
+                        persistTimeStamp: getPersistTimeStamp(),
+                        ajaxRequest: log.ajaxRequest
                     }
                 }, function(error, response) {
                     //console.log(response);
