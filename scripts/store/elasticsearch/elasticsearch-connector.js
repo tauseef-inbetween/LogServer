@@ -55,7 +55,7 @@ var getPersistTimeStamp = function () {
 
 exports.start = function() {
     var client = new elasticsearch.Client({
-        host: appConfig.IP_ADDRESS + ':' + appConfig.ELASTIC_SEARCH_PORT
+        host: appConfig.ELASTIC_IP_ADDRESS + ':' + appConfig.ELASTIC_SEARCH_PORT
     });
 
     exports.connector = getElasticsearchConnector(client);

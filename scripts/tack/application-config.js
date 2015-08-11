@@ -1,5 +1,6 @@
 module.exports = {
     IP_ADDRESS: 'localhost',
+    ELASTIC_IP_ADDRESS: 'localhost',
     SERVER_PORT: 8080,
     ELASTIC_SEARCH_PORT: 9200,
     INDEX_NAME: 'applicationlogindex',
