@@ -49,7 +49,7 @@ var getPersistTimeStamp = function () {
         + currentDate.getDate() + "T"
         + currentDate.getHours() + ":"
         + currentDate.getMinutes() + ":"
-        + currentDate.getSeconds() + "."
+        + currentDate.getSeconds()
         + currentDate.getMilliseconds();
 };
 
