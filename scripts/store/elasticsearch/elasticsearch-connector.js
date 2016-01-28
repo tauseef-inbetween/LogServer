@@ -45,12 +45,19 @@ var getElasticsearchConnector = function(elasticsearchClient) {
 var getPersistTimeStamp = function () {
     var currentDate = new Date();
     return currentDate.getFullYear() + "-"
-        + (currentDate.getMonth() + 1) + "-"
-        + currentDate.getDate() + "T"
-        + currentDate.getHours() + ":"
-        + currentDate.getMinutes() + ":"
-        + currentDate.getSeconds()
-        + currentDate.getMilliseconds();
+        + padLeft(2, '0', (currentDate.getMonth() + 1).toString()) + "-"
+        + padLeft(2, '0',(currentDate.getDate()).toString()) + "T"
+        + padLeft(2, '0',(currentDate.getHours()).toString()) + ":"
+        + padLeft(2, '0',(currentDate.getMinutes()).toString()) + ":"
+        + padLeft(2, '0',(currentDate.getSeconds()).toString()) + "."
+        + padLeft(3, '0',(currentDate.getMilliseconds()).toString());
+};
+
+var padLeft = function (length, newStr, str) {
+    newStr = newStr || ' ';
+    return str.length >= length
+        ? str
+        : (new Array(Math.ceil((length - str.length) / newStr.length) + 1).join(newStr)).substr(0, (length - str.length)) + str;
 };
 
 exports.start = function() {
