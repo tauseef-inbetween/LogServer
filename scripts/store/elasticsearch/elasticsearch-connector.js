@@ -10,22 +10,11 @@ var getElasticsearchConnector = function(elasticsearchClient) {
 
         saveLog: function(log) {
             if (elasticsearchClient) {
+                log.persistTimeStamp = getPersistTimeStamp();
                 elasticsearchClient.index({
                     index: appConfig.INDEX_NAME,
                     type: appConfig.INDEX_TYPE,
-                    body: {
-                        className: log.className,
-                        captureTimeStamp: log.captureTimeStamp,
-                        description: log.description,
-                        userScenario: log.userScenario,
-                        appData: typeof log.appData == 'string' ? log.appData : JSON.stringify(log.appData),
-                        logType: log.logType,
-                        sessionId: log.sessionId,
-                        requestId: log.requestId,
-                        mode: log.mode,
-                        persistTimeStamp: getPersistTimeStamp(),
-                        ajaxRequest: log.ajaxRequest
-                    }
+                    body: log
                 }, function(error, response) {
                     //console.log(response);
                     deferred.resolve(response);
