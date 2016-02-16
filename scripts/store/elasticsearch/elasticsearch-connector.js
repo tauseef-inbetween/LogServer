@@ -11,6 +11,7 @@ var getElasticsearchConnector = function(elasticsearchClient) {
         saveLog: function(log) {
             if (elasticsearchClient) {
                 log.persistTimeStamp = getPersistTimeStamp();
+                log.appData = typeof log.appData == 'string' ? log.appData : JSON.stringify(log.appData);
                 elasticsearchClient.index({
                     index: appConfig.INDEX_NAME,
                     type: appConfig.INDEX_TYPE,
