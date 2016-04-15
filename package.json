@@ -7,9 +7,9 @@
   "dependencies": {
   },
   "devDependencies": {
-    "elasticsearch": "*",
-    "websocket": "*",
-    "q": "*",
-    "bluebird": "*"
+    "elasticsearch": "10.1.3",
+    "websocket": "1.0.22",
+    "q": "1.4.1",
+    "bluebird": "3.2.2"
   }
 }
