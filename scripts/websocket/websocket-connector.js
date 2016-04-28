@@ -21,8 +21,8 @@ var startWebSocketServer = function() {
     wsServer = new websocketServerPlugin({
         httpServer: httpServer,
         autoAcceptConnections: false,
-        maxReceivedFrameSize: 1000000,      // 1MB frame size
-        maxReceivedMessageSize: 10000000    // 10MB message size
+        maxReceivedFrameSize: 10000000,      // 1MB frame size
+        maxReceivedMessageSize: 100000000    // 10MB message size
     });
 
     wsServer.on('request', function(request) {
